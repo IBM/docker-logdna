@@ -239,7 +239,7 @@ pub async fn mock_server(cfg: TestCfg) {
                     println!("{}", *proc_count.lock().unwrap());
                     assert_eq!(
                         body.lines[0].line,
-                        Some(format!("Critical docker_logdna error: Failed to send line to logdna ({}/5 retries): connection closed before message completed", *proc_count.lock().unwrap() / 2))
+                        Some(format!("Critical docker_logdna error: Failed to send line to logdna ({}/5 retries): client error (SendRequest)", *proc_count.lock().unwrap() / 2))
                     );
                     if *proc_count.lock().unwrap() == 11 {
                         inner_notify_stop.notify_one();

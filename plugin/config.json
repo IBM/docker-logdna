@@ -4,6 +4,40 @@
     "entrypoint": [
         "/docker_logdna"
     ],
+    "env": [
+        {
+            "Description": "",
+            "Name": "HTTP_PROXY",
+            "Settable": [
+                "value"
+            ],
+            "Value": ""
+        },
+        {
+            "Description": "",
+            "Name": "HTTPS_PROXY",
+            "Settable": [
+                "value"
+            ],
+            "Value": ""
+        },
+        {
+            "Description": "",
+            "Name": "http_proxy",
+            "Settable": [
+                "value"
+            ],
+            "Value": ""
+        },
+        {
+            "Description": "",
+            "Name": "https_proxy",
+            "Settable": [
+                "value"
+            ],
+            "Value": ""
+        }
+    ],
     "network": {
         "type": "host"
     },

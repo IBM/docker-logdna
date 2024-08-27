@@ -182,7 +182,10 @@ pub async fn get_client(config: &Config) -> Result<Client, String> {
     };
 
     // require_tls needs to be set to Some(false) for http to be used (required for the mocking server)
-    let mut client = Client::new(template, Some(!config.for_mock_server));
+    let mut client = match Client::new(template, Some(!config.for_mock_server)) {
+        Ok(client) => client,
+        Err(e) => return Err(format!("Failed to build the client. {}", e)),
+    };
     client.set_timeout(config.http_client_timeout);
     Ok(client)
 }
